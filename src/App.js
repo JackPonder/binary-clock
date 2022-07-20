@@ -7,47 +7,66 @@ export default function App() {
     setInterval(() => {
       const date = new Date();
       const time = { 
-        hours: date.getHours(), 
-        minutes: date.getMinutes(), 
-        seconds: date.getSeconds() 
+        hours: date.getHours().toString().padStart(2, "0"), 
+        minutes: date.getMinutes().toString().padStart(2, "0"), 
+        seconds: date.getSeconds().toString().padStart(2, "0"),
       };
 
+      if (true) {}
+
       console.clear();
-      console.log(time);
+      console.log(time.seconds[0], time.seconds[1]);
     }, 1000);
   }, []);
 
   return (
     <div className="App">
-      <div className="container">
-        {/* Row 1 */}
-        <div className="bar" id="1">8</div>
-        <div className="bar" id="2">8</div>
-        <div className="bar" id="3">8</div>
-        <div className="bar" id="4">8</div>
-        <div className="bar" id="5">8</div>
-        <div className="bar" id="6">8</div>
-        {/* Row 2 */}
-        <div className="bar" id="7">4</div>
-        <div className="bar" id="8">4</div>
-        <div className="bar" id="9">4</div>
-        <div className="bar" id="10">4</div>
-        <div className="bar" id="11">4</div>
-        <div className="bar" id="12">4</div>
-        {/* Row 3 */}
-        <div className="bar" id="13">2</div>
-        <div className="bar" id="14">2</div>
-        <div className="bar" id="15">2</div>
-        <div className="bar" id="16">2</div>
-        <div className="bar" id="17">2</div>
-        <div className="bar" id="18">2</div>
-        {/* Row 4 */}
-        <div className="bar" id="19">1</div>
-        <div className="bar" id="20">1</div>
-        <div className="bar" id="21">1</div>
-        <div className="bar" id="22">1</div>
-        <div className="bar" id="23">1</div>
-        <div className="bar" id="24">1</div>
+      <div className="container-major">
+        <div className="container-minor">
+          <div className="container-header">Hours</div>
+          {/* Row 1 */}
+          <div className="bar" id="h4"></div>
+          <div className="bar" id="h8"></div>
+          {/* Row 2 */}
+          <div className="bar" id="h3"></div>
+          <div className="bar" id="h7"></div>
+          {/* Row 3 */}
+          <div className="bar" id="h2"></div>
+          <div className="bar" id="h6"></div>
+          {/* Row 4 */}
+          <div className="bar" id="h1"></div>
+          <div className="bar" id="h5"></div>
+        </div>
+        <div className="container-minor">
+          <div className="container-header">Minutes</div>
+          {/* Row 1 */}
+          <div className="bar" id="m4"></div>
+          <div className="bar" id="m8"></div>
+          {/* Row 2 */}
+          <div className="bar" id="m3"></div>
+          <div className="bar" id="m7"></div>
+          {/* Row 3 */}
+          <div className="bar" id="m2"></div>
+          <div className="bar" id="m6"></div>
+          {/* Row 4 */}
+          <div className="bar" id="m1"></div>
+          <div className="bar" id="m5"></div>
+        </div>
+        <div className="container-minor">
+          <div className="container-header">Seconds</div>
+          {/* Row 1 */}
+          <div className="bar" id="s4"></div>
+          <div className="bar" id="s8"></div>
+          {/* Row 2 */}
+          <div className="bar" id="s3"></div>
+          <div className="bar" id="s7"></div>
+          {/* Row 3 */}
+          <div className="bar" id="s2"></div>
+          <div className="bar" id="s6"></div>
+          {/* Row 4 */}
+          <div className="bar" id="s1"></div>
+          <div className="bar" id="s5"></div>
+        </div>
       </div>
     </div>
   );

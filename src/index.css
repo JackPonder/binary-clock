@@ -1,5 +1,7 @@
 body {
   margin: 0;
+  background-color: #282c34;
+  color: white;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -8,10 +10,8 @@ body {
 }
 
 .App {
-  text-align: center;
-  background-color: #282c34;
-  color: white;
   min-height: 100vh;
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,15 +19,25 @@ body {
   font-size: calc(10px + 2vmin);
 }
 
-.container {
+.container-major {
+  display: flex;
+  flex-direction: row;
+}
+
+.container-minor {
   display: grid;
-  grid-template-columns: auto auto auto auto auto auto;
+  grid-template-columns: auto auto;
   grid-template-rows: auto auto auto auto auto auto;
+}
+
+.container-header {
+  grid-column: span 2;
+  margin-bottom: 10px;
 }
 
 .bar {
   width: 5rem;
-  height: 7.5rem;
+  height: 6rem;
   background-color: grey;
   border-radius: 0.25rem;
   margin: 0.75rem;
