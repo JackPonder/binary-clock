@@ -16,7 +16,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
 }
 
 .container-major {
@@ -27,24 +26,26 @@ body {
 .container-minor {
   display: grid;
   grid-template-columns: auto auto;
-  grid-template-rows: auto auto auto auto auto auto;
+  grid-template-rows: auto auto auto auto auto;
+  row-gap: 2vmin;
+  column-gap: 2vmin;
+  margin: 1vmin;
 }
 
 .container-header {
+  font-size: 5vmin;
   grid-column: span 2;
-  margin-bottom: 10px;
 }
 
 .bar {
-  width: 5rem;
-  height: 6rem;
-  background-color: grey;
+  width: 12vmin;
+  height: 14vmin;
+  background-color: rgb(80, 80, 80);
   border-radius: 0.25rem;
-  margin: 0.75rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
+  font-size: 1vmin;
   transition: 0.5s;
 }
 
