@@ -6,16 +6,25 @@ export default function App() {
   useEffect(() => {
     setInterval(() => {
       const date = new Date();
-      const time = { 
-        hours: date.getHours().toString().padStart(2, "0"), 
-        minutes: date.getMinutes().toString().padStart(2, "0"), 
-        seconds: date.getSeconds().toString().padStart(2, "0"),
-      };
+      const time = [
+        Math.floor(date.getHours() / 10 % 10),
+        Math.floor(date.getHours() % 10),
+        Math.floor(date.getMinutes() / 10 % 10),
+        Math.floor(date.getMinutes() % 10),
+        Math.floor(date.getSeconds() / 10 % 10),
+        Math.floor(date.getSeconds() % 10),
+      ];
 
-      if (true) {}
+      time.forEach((item, index) => { 
+        time[index] = item.toString(2).padStart(4, "0");
+      });
+
+      for (const element of document.getElementsByClassName("bar")) { 
+        element.className = "bar";
+      }
 
       console.clear();
-      console.log(time.seconds[0], time.seconds[1]);
+      console.log(time);
     }, 1000);
   }, []);
 

@@ -45,6 +45,7 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 2rem;
+  transition: 0.5s;
 }
 
 .active {
