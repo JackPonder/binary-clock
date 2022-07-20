@@ -1,12 +1,10 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 export default function App() {
-  const [  ] = useState();
-
   useEffect(() => {
     setInterval(() => {
       const date = new Date();
-      const time = [
+      let time = [
         Math.floor(date.getHours() / 10 % 10),
         Math.floor(date.getHours() % 10),
         Math.floor(date.getMinutes() / 10 % 10),
@@ -18,13 +16,17 @@ export default function App() {
       time.forEach((item, index) => { 
         time[index] = item.toString(2).padStart(4, "0");
       });
+      time = time.join("");
 
-      for (const element of document.getElementsByClassName("bar")) { 
-        element.className = "bar";
+      let count = 1
+      for (const value of time) {
+        if (value === "1") {
+          document.getElementById(count).className = "bar active";
+        } else if (value === "0") {
+          document.getElementById(count).className = "bar";
+        }
+        count += 1;
       }
-
-      console.clear();
-      console.log(time);
     }, 1000);
   }, []);
 
@@ -34,47 +36,47 @@ export default function App() {
         <div className="container-minor">
           <div className="container-header">Hours</div>
           {/* Row 1 */}
-          <div className="bar" id="h4"></div>
-          <div className="bar" id="h8"></div>
+          <div className="bar" id="1"></div>
+          <div className="bar" id="5"></div>
           {/* Row 2 */}
-          <div className="bar" id="h3"></div>
-          <div className="bar" id="h7"></div>
+          <div className="bar" id="2"></div>
+          <div className="bar" id="6"></div>
           {/* Row 3 */}
-          <div className="bar" id="h2"></div>
-          <div className="bar" id="h6"></div>
+          <div className="bar" id="3"></div>
+          <div className="bar" id="7"></div>
           {/* Row 4 */}
-          <div className="bar" id="h1"></div>
-          <div className="bar" id="h5"></div>
+          <div className="bar" id="4"></div>
+          <div className="bar" id="8"></div>
         </div>
         <div className="container-minor">
           <div className="container-header">Minutes</div>
           {/* Row 1 */}
-          <div className="bar" id="m4"></div>
-          <div className="bar" id="m8"></div>
+          <div className="bar" id="9"></div>
+          <div className="bar" id="13"></div>
           {/* Row 2 */}
-          <div className="bar" id="m3"></div>
-          <div className="bar" id="m7"></div>
+          <div className="bar" id="10"></div>
+          <div className="bar" id="14"></div>
           {/* Row 3 */}
-          <div className="bar" id="m2"></div>
-          <div className="bar" id="m6"></div>
+          <div className="bar" id="11"></div>
+          <div className="bar" id="15"></div>
           {/* Row 4 */}
-          <div className="bar" id="m1"></div>
-          <div className="bar" id="m5"></div>
+          <div className="bar" id="12"></div>
+          <div className="bar" id="16"></div>
         </div>
         <div className="container-minor">
           <div className="container-header">Seconds</div>
           {/* Row 1 */}
-          <div className="bar" id="s4"></div>
-          <div className="bar" id="s8"></div>
+          <div className="bar" id="17"></div>
+          <div className="bar" id="21"></div>
           {/* Row 2 */}
-          <div className="bar" id="s3"></div>
-          <div className="bar" id="s7"></div>
+          <div className="bar" id="18"></div>
+          <div className="bar" id="22"></div>
           {/* Row 3 */}
-          <div className="bar" id="s2"></div>
-          <div className="bar" id="s6"></div>
+          <div className="bar" id="19"></div>
+          <div className="bar" id="23"></div>
           {/* Row 4 */}
-          <div className="bar" id="s1"></div>
-          <div className="bar" id="s5"></div>
+          <div className="bar" id="20"></div>
+          <div className="bar" id="24"></div>
         </div>
       </div>
     </div>
