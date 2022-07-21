@@ -4,7 +4,7 @@ export default function App() {
   useEffect(() => {
     setInterval(() => {
       const date = new Date();
-      let time = [
+      const time = [
         Math.floor(date.getHours() / 10 % 10),
         Math.floor(date.getHours() % 10),
         Math.floor(date.getMinutes() / 10 % 10),
@@ -15,22 +15,26 @@ export default function App() {
       time.forEach((item, index) => { 
         time[index] = item.toString(2).padStart(4, "0");
       });
-      time = time.join("");
+      const binaryTime = time.join("");
 
-      for (let i = 0; i < time.length; i++) {
+      for (let i = 0; i < binaryTime.length; i++) {
         const label = 
           (i - 3) % 4 === 0 ? 1 : 
           (i - 2) % 4 === 0 ? 2 :
           (i - 1) % 4 === 0 ? 4 : 8;
         const bar = document.getElementById(i);
         
-        if (time[i] === "1") {
+        if (binaryTime[i] === "1") {
           bar.className = "bar active";
           bar.innerHTML = label;
-        } else if (time[i] === "0") {
+        } else if (binaryTime[i] === "0") {
           bar.className = "bar";
           bar.innerHTML = "";
         }
+      }
+
+      for (let i = 0; i < time.length; i++) {
+        document.getElementById("label" + i).innerHTML = time[i];
       }
     }, 1000);
   }, []);
@@ -52,6 +56,9 @@ export default function App() {
           {/* Row 4 */}
           <div className="bar" id="3"></div>
           <div className="bar" id="7"></div>
+          {/* Bottom Row */}
+          <div className="time-label" id="label0">0000</div>
+          <div className="time-label" id="label1">0000</div>
         </div>
         <div className="container-minor">
           <div className="container-header">Minutes</div>
@@ -67,6 +74,9 @@ export default function App() {
           {/* Row 4 */}
           <div className="bar" id="11"></div>
           <div className="bar" id="15"></div>
+          {/* Bottom Row */}
+          <div className="time-label" id="label2">0000</div>
+          <div className="time-label" id="label3">0000</div>
         </div>
         <div className="container-minor">
           <div className="container-header">Seconds</div>
@@ -82,6 +92,9 @@ export default function App() {
           {/* Row 4 */}
           <div className="bar" id="19"></div>
           <div className="bar" id="23"></div>
+          {/* Bottom Row */}
+          <div className="time-label" id="label4">0000</div>
+          <div className="time-label" id="label5">0000</div>
         </div>
       </div>
     </div>
