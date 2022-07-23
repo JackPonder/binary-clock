@@ -71,6 +71,7 @@ export default function App() {
             <div className="time-label-small">0000</div>
           </div>
         </div>
+        <div className="separator">:</div>
         <div className="container-minor">
           <div className="container-header">Minutes</div>
           {/* Row 1 */}
@@ -95,6 +96,7 @@ export default function App() {
             <div className="time-label-small">0000</div>
           </div>
         </div>
+        <div className="separator">:</div>
         <div className="container-minor">
           <div className="container-header">Seconds</div>
           {/* Row 1 */}
