@@ -55,6 +55,10 @@ body {
   background-color: #61dafb;
 }
 
-.time-label {
+.time-label-big {
+  font-size: 6vmin;
+}
+
+.time-label-small {
   font-size: 3vmin;
 }

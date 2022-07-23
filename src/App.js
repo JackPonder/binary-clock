@@ -12,11 +12,20 @@ export default function App() {
         Math.floor(date.getSeconds() / 10 % 10),
         Math.floor(date.getSeconds() % 10),
       ];
+
+      for (let i = 0; i < time.length; i++) {
+        document.getElementById("label" + i).children[0].innerHTML = time[i];
+      }
+
       time.forEach((item, index) => { 
         time[index] = item.toString(2).padStart(4, "0");
       });
-      const binaryTime = time.join("");
 
+      for (let i = 0; i < time.length; i++) {
+        document.getElementById("label" + i).children[1].innerHTML = time[i];
+      }
+      
+      const binaryTime = time.join("");
       for (let i = 0; i < binaryTime.length; i++) {
         const label = 
           (i - 3) % 4 === 0 ? 1 : 
@@ -31,10 +40,6 @@ export default function App() {
           bar.className = "bar";
           bar.innerHTML = "";
         }
-      }
-
-      for (let i = 0; i < time.length; i++) {
-        document.getElementById("label" + i).innerHTML = time[i];
       }
     }, 1000);
   }, []);
@@ -57,8 +62,14 @@ export default function App() {
           <div className="bar" id="3"></div>
           <div className="bar" id="7"></div>
           {/* Bottom Row */}
-          <div className="time-label" id="label0">0000</div>
-          <div className="time-label" id="label1">0000</div>
+          <div id="label0">
+            <div className="time-label-big">0</div>
+            <div className="time-label-small">0000</div>
+          </div>
+          <div id="label1">
+            <div className="time-label-big">0</div>
+            <div className="time-label-small">0000</div>
+          </div>
         </div>
         <div className="container-minor">
           <div className="container-header">Minutes</div>
@@ -75,8 +86,14 @@ export default function App() {
           <div className="bar" id="11"></div>
           <div className="bar" id="15"></div>
           {/* Bottom Row */}
-          <div className="time-label" id="label2">0000</div>
-          <div className="time-label" id="label3">0000</div>
+          <div id="label2">
+            <div className="time-label-big">0</div>
+            <div className="time-label-small">0000</div>
+          </div>
+          <div id="label3">
+            <div className="time-label-big">0</div>
+            <div className="time-label-small">0000</div>
+          </div>
         </div>
         <div className="container-minor">
           <div className="container-header">Seconds</div>
@@ -93,8 +110,14 @@ export default function App() {
           <div className="bar" id="19"></div>
           <div className="bar" id="23"></div>
           {/* Bottom Row */}
-          <div className="time-label" id="label4">0000</div>
-          <div className="time-label" id="label5">0000</div>
+          <div id="label4">
+            <div className="time-label-big">0</div>
+            <div className="time-label-small">0000</div>
+          </div>
+          <div id="label5">
+            <div className="time-label-big">0</div>
+            <div className="time-label-small">0000</div>
+          </div>
         </div>
       </div>
     </div>
