@@ -20,11 +20,12 @@ export default function App() {
 
     const binaryTime = time.map((item) => item.toString(2).padStart(4, "0")).join("");
     for (let i = 0; i < binaryTime.length; i++) {
-      const label = 
+      const bar = document.getElementById(i);
+      const label = (
         (i - 3) % 4 === 0 ? 1 : 
         (i - 2) % 4 === 0 ? 2 :
-        (i - 1) % 4 === 0 ? 4 : 8;
-      const bar = document.getElementById(i);
+        (i - 1) % 4 === 0 ? 4 : 8        
+      );
       
       if (binaryTime[i] === "1") {
         bar.className = "bar active";
@@ -36,7 +37,6 @@ export default function App() {
     }
   }, 1000);
   
-
   return (
     <div className="App">
       <div className="container-major">
