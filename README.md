@@ -2,4 +2,4 @@
 
 A simple binary clock built with vanilla JavaScript and plain CSS. 
 
-![](binary-clock.png)
+![](docs/binary-clock.png)

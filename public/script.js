@@ -10,14 +10,14 @@ setInterval(() => {
   ];
 
   for (let i = 0; i < time.length; i++) {
-    const [ label1, label2 ] = document.getElementById("label" + i).children;
-    label1.innerHTML = time[i];
+    const [label1, label2] = document.getElementById("label" + i).children;
+    label1.innerHTML = time[i].toString();
     label2.innerHTML = time[i].toString(2).padStart(4, "0");
   }
 
   const binaryTime = time.map((item) => item.toString(2).padStart(4, "0")).join("");
   for (let i = 0; i < binaryTime.length; i++) {
-    const bar = document.getElementById(i);
+    const bar = document.getElementById(i.toString());
     const label = (
       (i - 3) % 4 === 0 ? 1 : 
       (i - 2) % 4 === 0 ? 2 :
@@ -26,7 +26,7 @@ setInterval(() => {
     
     if (binaryTime[i] === "1") {
       bar.className = "bar active";
-      bar.innerHTML = label;
+      bar.innerHTML = label.toString();
     } else if (binaryTime[i] === "0") {
       bar.className = "bar";
       bar.innerHTML = "";
