@@ -46,7 +46,7 @@ body {
   width: 12vmin;
   height: 14vmin;
   background-color: var(--color-secondary);
-  border-radius: 0.25rem;
+  border-radius: 0.75vmin;
   display: flex;
   justify-content: center;
   align-items: center;
