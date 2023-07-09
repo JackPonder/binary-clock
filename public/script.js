@@ -4,7 +4,7 @@ const binaryLabels = document.getElementsByClassName("time-label-small");
 
 setInterval(() => {
   const time = new Date().toLocaleTimeString([], { 
-    hour12: false, 
+    hourCycle: "h23"
   }).replace(/:/g, "").split("").map(i => parseInt(i));
 
   for (let i = 0; i < time.length; i++) {
