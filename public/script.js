@@ -1,23 +1,19 @@
+const bits = document.getElementsByClassName("bit");
+const decimalLabels = document.getElementsByClassName("time-label-big");
+const binaryLabels = document.getElementsByClassName("time-label-small");
+
 setInterval(() => {
-  const date = new Date();
-  const time = [
-    Math.floor(date.getHours() / 10 % 10),
-    Math.floor(date.getHours() % 10),
-    Math.floor(date.getMinutes() / 10 % 10),
-    Math.floor(date.getMinutes() % 10),
-    Math.floor(date.getSeconds() / 10 % 10),
-    Math.floor(date.getSeconds() % 10),
-  ];
+  const time = new Date().toLocaleTimeString([], { 
+    hour12: false, 
+  }).replace(/:/g, "").split("").map(i => parseInt(i));
 
   for (let i = 0; i < time.length; i++) {
-    const [label1, label2] = document.getElementById("label" + i).children;
-    label1.innerHTML = time[i].toString();
-    label2.innerHTML = time[i].toString(2).padStart(4, "0");
+    decimalLabels[i].innerHTML = time[i].toString();
+    binaryLabels[i].innerHTML = time[i].toString(2).padStart(4, "0");
   }
 
-  const binaryTime = time.map((item) => item.toString(2).padStart(4, "0")).join("");
+  const binaryTime = time.map(i => i.toString(2).padStart(4, "0")).join("");
   for (let i = 0; i < binaryTime.length; i++) {
-    const bar = document.getElementById(i.toString());
     const label = (
       (i - 3) % 4 === 0 ? 1 : 
       (i - 2) % 4 === 0 ? 2 :
@@ -25,11 +21,11 @@ setInterval(() => {
     );
     
     if (binaryTime[i] === "1") {
-      bar.className = "bar active";
-      bar.innerHTML = label.toString();
+      bits[i].classList.add("active");
+      bits[i].innerHTML = label.toString();
     } else if (binaryTime[i] === "0") {
-      bar.className = "bar";
-      bar.innerHTML = "";
+      bits[i].classList.remove("active");
+      bits[i].innerHTML = "";
     }
   }
 }, 1000);
